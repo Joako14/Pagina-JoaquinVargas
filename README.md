@@ -10,6 +10,7 @@ Para abrir el proyecto:
 2. Crea un entorno virtual: `python -m venv venv`
 3. Activa el entorno virtual: `venv\Scripts\activate`
 4. Instala las dependencias: `pip install -r requirements.txt`
+5. Ejecuta: `python manage.py runserver`
 
 ## Uso
 
