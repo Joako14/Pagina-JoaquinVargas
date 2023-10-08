@@ -1,0 +1,28 @@
+{% extends "home/base.html" %}
+
+    {% block title %}
+        <h2> Otras Baterias </h2>
+    {% endblock title %}
+    
+    {% block content %}
+
+        <h3>Equipo</h3>
+        <ul>
+            {% for equipo in equipos %}
+                <li>{{equipo.equipo}} - Tipo de bateria: {{equipo.tipo_de_bateria}}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Baterias</h3>
+        <ul>
+            {% for bateria in baterias %}
+                <li>{{bateria.marca}} {{bateria.modelo}}</li>
+            {% endfor %}
+        </ul>
+
+        <p><a href="{% url 'otros:ingresar_equipo' %}">Ingresar equipo</a></p>
+        <p><a href="{% url 'otros:ingresar_bateria' %}">Ingresar bateria</a></p>
+
+        <p><a href="{% url 'home:index' %}">Ir a inicio</a></p>
+    {% endblock content %}
+    

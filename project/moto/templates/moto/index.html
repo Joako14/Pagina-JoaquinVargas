@@ -1,0 +1,29 @@
+{% extends "home/base.html" %}
+
+    {% block title %}
+        <h2> Modelos </h2>
+    {% endblock title %}
+    
+    {% block content %}
+
+        <h3>Motos</h3>
+        <ul>
+            {% for motocicleta in motocicletas %}
+                <li>{{motocicleta.marca}} {{motocicleta.modelo}}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Baterias</h3>
+        <ul>
+            {% for bateria in baterias %}
+                <li>{{bateria.marca}} {{bateria.modelo}}</li>
+            {% endfor %}
+        </ul>
+
+
+        <p><a href="{% url 'moto:ingresar_motocicleta' %}">Ingresar motocicleta</a></p>
+        <p><a href="{% url 'moto:ingresar_bateria' %}">Ingresar bateria</a></p>
+
+        <p><a href="{% url 'home:index' %}">Ir a inicio</a></p>
+    {% endblock content %}
+    
