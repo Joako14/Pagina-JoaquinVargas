@@ -1,27 +1,33 @@
 {% extends "home/base.html" %}
 
     {% block title %}
+    <div class="container">    
         <h2> Modelos </h2>
+    </div>
     {% endblock title %}
     
     {% block content %}
-        <h3>Vehiculos</h3>
-        <ul>
-            {% for vehiculo in vehiculos %}
-                <li>{{vehiculo.marca}} {{vehiculo.modelo}}</li>
-            {% endfor %}
-        </ul>
+        <div class="container">
 
-        <h3>Baterias</h3>
-        <ul>
-            {% for bateria in baterias %}
-                <li>{{bateria.marca}} {{bateria.modelo}}</li>
-            {% endfor %}
-        </ul>
+            <h3>Vehiculos</h3>
+        
+            <ul>
+                {% for vehiculo in vehiculos %}
+                    <li>{{vehiculo.marca}} {{vehiculo.modelo}}</li>
+                {% endfor %}
+            </ul>
 
-        <p><a href="{% url 'auto:ingresar_vehiculo' %}">Ingresar vehiculo</a></p>
-        <p><a href="{% url 'auto:ingresar_bateria' %}">Ingresar bateria</a></p>
+            <h3>Baterias</h3>
+            <ul>
+                {% for bateria in baterias %}
+                    <li>{{bateria.marca}} {{bateria.modelo}}</li>
+                {% endfor %}
+            </ul>
 
-        <p><a href="{% url 'home:index' %}">Ir a inicio</a></p>
+            <p><a href="{% url 'auto:ingresar_vehiculo' %}">Ingresar vehiculo</a></p>
+            <p><a href="{% url 'auto:ingresar_bateria' %}">Ingresar bateria</a></p>
+
+            <p><a href="{% url 'home:index' %}">Ir a inicio</a></p>
+        </div>
     {% endblock content %}
     
