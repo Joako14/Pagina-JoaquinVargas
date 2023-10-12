@@ -1,0 +1,18 @@
+{% extends "catalogo/base.html" %}
+
+{% block catalogo %}
+
+    {% for catalogo in object_list %}
+
+        <ul>
+            <li>{{ catalogo.marca }} {{ catalogo.modelo }} {{ catalogo.año }}</li>  
+            <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a>       
+        </ul>
+        
+    {% endfor %}
+
+    <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar</a></p>
+    <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
+    <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+
+{% endblock catalogo %}

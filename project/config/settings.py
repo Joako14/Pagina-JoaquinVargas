@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'moto',
     'auto',
     "otros",
+    "catalogo",
 ]
 
 MIDDLEWARE = [

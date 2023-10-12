@@ -1,0 +1,21 @@
+{% extends "catalogo/base.html" %}
+
+{% block content %}
+
+    {% block content_title %}
+        <h3>Catalogo</h3>
+    {% endblock content_title %}
+
+    {% block catalogo %}
+
+        <p><a href="{% url 'catalogo:marcacategoria_form' %}">Ingresar Marca</a></p>
+        <p><a href="{% url 'catalogo:modelocategoria_form' %}">Ingresar Modelo</a></p>
+        <p><a href="{% url 'catalogo:añocategoria_form' %}">Ingresar Año</a></p>
+        <p><a href="{% url 'catalogo:bateriacategoria_form' %}">Ingresar Bateria</a></p>
+
+    {% endblock catalogo %}
+
+    <p><a href="{% url 'catalogo:catalogo_list' %}">Registros</a></p>
+    <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+
+{% endblock content %}
