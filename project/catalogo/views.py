@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from . import models, forms
 
@@ -20,7 +20,7 @@ class MarcaCategoriaCreate(CreateView):
     model = models.MarcaCategoria
     form_class = forms.MarcaCategoriaForm
     success_url = reverse_lazy("catalogo:index")
-    
+       
 class ModeloCategoriaCreate(CreateView):
     model = models.ModeloCategoria
     form_class = forms.ModeloCategoriaForm
@@ -35,3 +35,15 @@ class BateriaCategoriaCreate(CreateView):
     model = models.BateriaCategoria
     form_class = forms.BateriaCategoriaForm
     success_url = reverse_lazy("catalogo:index")
+    
+class CatalogoUpdate(UpdateView):
+    model = models.Catalogo
+    form_class = forms.CatalogoForm
+    success_url = reverse_lazy("catalogo:catalogo_list")
+    
+class CatalogoDelete(DeleteView):
+    model = models.Catalogo
+    success_url = reverse_lazy("catalogo:catalogo_list")
+    
+
+

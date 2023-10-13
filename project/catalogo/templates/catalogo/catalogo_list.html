@@ -6,11 +6,13 @@
 
         <ul>
             <li>{{ catalogo.marca }} {{ catalogo.modelo }} {{ catalogo.año }}</li>  
-            <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a>       
+            <p><a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a></p>  
+            <p><a href="{% url 'catalogo:catalogo_update' catalogo.id %}">Modificar</a></p>
+            <p><a href="{% url 'catalogo:catalogo_delete' catalogo.id %}">Eliminar</a></p>
         </ul>
         
     {% endfor %}
-
+  
     <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar</a></p>
     <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
     <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
