@@ -15,4 +15,5 @@ urlpatterns = [
     path("catalogo/catalogoupdate/<int:pk>", views.CatalogoUpdate.as_view(), name = "catalogo_update"),
     path("catalogo/catalogodelete/<int:pk>", views.CatalogoDelete.as_view(), name = "catalogo_delete"),
     path("catalogo/detail/<int:pk>", views.CatalogoDetail.as_view(), name = "catalogo_detail"),
+    path('consulta/', views.consulta_catalogo, name='consulta_catalogo'),
 ]

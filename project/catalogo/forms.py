@@ -1,4 +1,5 @@
 from django import forms
+from .models import MarcaCategoria, ModeloCategoria, AñoCategoria
 
 from . import models
 
@@ -26,6 +27,12 @@ class BateriaCategoriaForm(forms.ModelForm):
     class Meta:
         model = models.BateriaCategoria
         fields = "__all__"
+        
+class ConsultaCatalogoForm(forms.Form):
+    marca = forms.ModelChoiceField(queryset=MarcaCategoria.objects.all(), required=False)
+    modelo = forms.ModelChoiceField(queryset=ModeloCategoria.objects.all(), required=False)
+    año = forms.ModelChoiceField(queryset=AñoCategoria.objects.all(), required=False)
+    
         
         
         

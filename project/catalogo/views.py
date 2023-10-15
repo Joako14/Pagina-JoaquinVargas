@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import ConsultaCatalogoForm
+from .models import BateriaCategoria, Catalogo
 
 from . import models, forms
 
@@ -45,5 +47,24 @@ class CatalogoDelete(DeleteView):
     model = models.Catalogo
     success_url = reverse_lazy("catalogo:catalogo_list")
     
+def consulta_catalogo(request):
+    resultados = None
+    detalles_bateria = []
+    form = ConsultaCatalogoForm()
+    
+    if request.method == 'POST':
+        form = ConsultaCatalogoForm(request.POST)
+        if form.is_valid():
+            marca = form.cleaned_data.get('marca')
+            modelo = form.cleaned_data.get('modelo')
+            año = form.cleaned_data.get('año')
+            
+            # Realiza la consulta en función de los valores seleccionados
+            resultados = Catalogo.objects.filter(marca=marca, modelo=modelo, año=año)
+            detalles_bateria = [item.bateria for item in resultados]
+
+    return render(request, 'catalogo/consulta_catalogo.html', {'form': form, 'resultados': resultados, 'detalles_bateria': detalles_bateria})
+
+
 
 

@@ -1,0 +1,36 @@
+{% extends "catalogo/base.html" %}
+
+{% block content %}
+
+    <h1>Consulta de Catálogo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit">Consultar</button>
+    </form>
+
+    {% if resultados %}
+        <h2>Resultados:</h2>
+        <ul>
+            {% for item in resultados %}
+                <li>Marca: {{ item.marca }}, Modelo: {{ item.modelo }}, Año: {{ item.año }}</li>
+                <li>Descripción: {{ item.descripcion }}</li>
+                <ul>
+                    {% for detalle in detalles_bateria %}
+                        <li>Bateria: {{ detalle.bateria }}</li>
+                        <li>Marca: {{ detalle.marca }}</li>
+                        <li>Tipo de Batería: {{ detalle.tipo_bateria }}</li>
+                        <li>Positivo: {{ detalle.positivo }}</li>
+                        <li>Amperaje: {{ detalle.amperaje }}</li>
+                        <li>Potencia de arranque: {{ detalle.potencia_arranque }}</li>
+                        <li>Tipo de borne: {{ detalle.tipo_borne }}</li>
+                     {% endfor %}
+                </ul>
+            {% endfor %}
+    {% else %}
+        <li>No se encontraron resultados.</li>
+    {% endif %}
+    <p><a href="{% url 'catalogo:catalogo_list' %}">Ir atras</a></p>
+    <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+
+{% endblock content %}

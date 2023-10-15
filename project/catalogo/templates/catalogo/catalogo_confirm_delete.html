@@ -1,11 +1,11 @@
 {% extends 'catalogo/base.html' %}
 
 {% block title %}
-    Eliminar Categoría
+    Eliminar Registro
 {% endblock title %}
 
 {% block content %}
-    <p>¿Está seguro de eliminar la categoría {{ object.nombre }}?</p>
+    <p>¿Está seguro de eliminar {{ object.marca }} {{ object.modelo }} año {{ object.año }}?</p>
 
     <form action="" method="post">
         {% csrf_token %}
