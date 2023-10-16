@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link {% if request.path == "/catalogo/createmarca//" %} active  {% endif %}" href="{% url 'catalogo:marcacategoria_form' %}">Ingresar marca</a></li>
+                <li class="nav-item"><a class="nav-link {% if request.path == "/catalogo/createmodelo/" %} active  {% endif %}" href="{% url 'catalogo:modelocategoria_form' %}">Ingresar modelo</a></li>
+                    <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link {% if request.path == "/catalogo/list/" %} active  {% endif %}" href="{% url 'catalogo:catalogo_list' %}">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:login' %}">Login</a></li>
+                {% endif %}

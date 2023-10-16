@@ -6,16 +6,26 @@
 
         <ul>
             <li>{{ catalogo.marca }} {{ catalogo.modelo }} {{ catalogo.año }}</li>  
-            <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a> 
-            <a href="{% url 'catalogo:catalogo_update' catalogo.id %}">Modificar</a>
-            <a href="{% url 'catalogo:catalogo_delete' catalogo.id %}">Eliminar</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a> 
+                <a href="{% url 'catalogo:catalogo_update' catalogo.id %}">Modificar</a>
+                <a href="{% url 'catalogo:catalogo_delete' catalogo.id %}">Eliminar</a>
+            {% else %}
+                <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a>
+            {% endif %}
         </ul>
         
     {% endfor %}
   
-    <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
-    <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar</a></p>
-    <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
-    <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar</a></p>
+        <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
+        <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
+        <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+    {% else %}
+        <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
+        <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
+        <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+    {% endif %}
 
 {% endblock catalogo %}
