@@ -4,7 +4,13 @@
     {% endblock title %}
     
     {% block content %}
-        <p><a href="{% url 'catalogo:index' %}">Ingresar Datos</a></p>
-        <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
-        <p><a href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
+        {% if user.is_authenticated %}           
+            <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
+            <p><a href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
+            <p><a href="{% url 'catalogo:index' %}">Ingresar Datos</a></p>
+        {% else %}
+            <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
+            <p><a href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
+        {% endif %}
+
     {% endblock content %}
