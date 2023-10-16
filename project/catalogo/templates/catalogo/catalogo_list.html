@@ -18,12 +18,9 @@
     {% endfor %}
   
     {% if user.is_authenticated %}
-        <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar</a></p>
-        <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
         <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
         <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
     {% else %}
-        <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
         <p><a href="{% url 'catalogo:index' %}">Ir atras</a></p>
         <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
     {% endif %}

@@ -8,8 +8,5 @@ urlpatterns = [
 
 urlpatterns += [
     path("", include("home.urls")),
-    path("moto/", include("moto.urls")),
-    path("auto/", include("auto.urls")),
-    path("otros/", include("otros.urls")),
     path("catalogo/", include("catalogo.urls")),
 ]
