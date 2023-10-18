@@ -2,19 +2,19 @@
 
 {% block catalogo %}
 
-    <ul>
-        <li><strong>Marca:</strong> {{ object.marca }} &nbsp <strong>Modelo:</strong> {{ object.modelo }} &nbsp <strong>Año:</strong> {{ object.año }}</li>
-        <li><strong>Bateria:</strong> {{ object.bateria }} </li>
-        <li><strong>Marca:</strong> {{ object.bateria.marca }} </li>
-        <li><strong>Tipo de bateria:</strong> {{ object.bateria.tipo_bateria }} </li>
-        <li><strong>Positivo:</strong> {{ object.bateria.positivo }} </li>
-        <li><strong>Amperaje:</strong> {{ object.bateria.amperaje }} AH </li>
-        <li><strong>Potencia de arranque:</strong> {{ object.bateria.potencia_arranque }} CCA </li>
-        <li><strong>Descripcion:</strong> {{ object.descripcion }} </li>
-        <li><strong>Fecha de actualizacion:</strong> {{ object.fecha_actualizacion }} </li>
-    </ul>
+            <ul>
+                <li><strong>Marca:</strong> {{ object.marca }} &nbsp <strong>Modelo:</strong> {{ object.modelo }} &nbsp <strong>Año:</strong> {{ object.año }}</li>
+                <li><strong>Bateria:</strong> {{ object.bateria }} </li>
+                <li><strong>Marca:</strong> {{ object.bateria.marca }} </li>
+                <li><strong>Tipo de bateria:</strong> {{ object.bateria.tipo_bateria }} </li>
+                <li><strong>Positivo:</strong> {{ object.bateria.positivo }} </li>
+                <li><strong>Amperaje:</strong> {{ object.bateria.amperaje }} AH </li>
+                <li><strong>Potencia de arranque:</strong> {{ object.bateria.potencia_arranque }} CCA </li>
+                <li><strong>Descripcion:</strong> {{ object.descripcion }} </li>
+                <li><strong>Fecha de actualizacion:</strong> {{ object.fecha_actualizacion }} </li>
+            </ul>
 
-    <p><a href="{% url 'catalogo:catalogo_list' %}">Ir atras</a></p>
-    <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+            <p><a href="{% url 'catalogo:catalogo_list' %}">Ir atras</a></p>
+            <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
 
 {% endblock catalogo %}

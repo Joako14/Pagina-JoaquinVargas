@@ -1,19 +1,23 @@
 {% extends 'catalogo/base.html' %}
 
-{% block title %}
-    Eliminar Registro
-{% endblock title %}
-
 {% block content %}
-    <p>¿Está seguro de eliminar {{ object.marca }} {{ object.modelo }} año {{ object.año }}?</p>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            {% block title %}
+                Eliminar Registro
+            {% endblock title %}
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <div>
-            <button type="submit">Confirmar</button>
+                <p>¿Está seguro de eliminar {{ object.marca }} {{ object.modelo }} año {{ object.año }}?</p>
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <button type="submit">Confirmar</button>
+                    </div>
+                </form>
+
+            <p><a href="{% url 'catalogo:catalogo_list' %}">Ir Atras</a></p>
         </div>
-    </form>
-
-    <p><a href="{% url 'catalogo:catalogo_list' %}">Ir Atras</a></p>
+    </div>        
 
 {% endblock content %}

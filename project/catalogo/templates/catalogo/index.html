@@ -1,22 +1,25 @@
 {% extends "catalogo/base.html" %}
 
 {% block content %}
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            {% block content_title %}
+                <h3>Registros</h3>
+            {% endblock content_title %}
 
-    {% block content_title %}
-        <h3>Registros</h3>
-    {% endblock content_title %}
+            {% block catalogo %}
+                {% if user.is_authenticated %}
+                    <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar Catalogo</a></p>
+                    <p><a href="{% url 'catalogo:marcacategoria_form' %}">Ingresar Marca</a></p>
+                    <p><a href="{% url 'catalogo:modelocategoria_form' %}">Ingresar Modelo</a></p>
+                    <p><a href="{% url 'catalogo:añocategoria_form' %}">Ingresar Año</a></p>
+                    <p><a href="{% url 'catalogo:bateriacategoria_form' %}">Ingresar Bateria</a></p>
+                {% endif %}
 
-    {% block catalogo %}
-        {% if user.is_authenticated %}
-            <p><a href="{% url 'catalogo:catalogo_form' %}">Ingresar Catalogo</a></p>
-            <p><a href="{% url 'catalogo:marcacategoria_form' %}">Ingresar Marca</a></p>
-            <p><a href="{% url 'catalogo:modelocategoria_form' %}">Ingresar Modelo</a></p>
-            <p><a href="{% url 'catalogo:añocategoria_form' %}">Ingresar Año</a></p>
-            <p><a href="{% url 'catalogo:bateriacategoria_form' %}">Ingresar Bateria</a></p>
-        {% endif %}
+            {% endblock catalogo %}
 
-    {% endblock catalogo %}
-
-    <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+            <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+        </div>
+    </div>
 
 {% endblock content %}

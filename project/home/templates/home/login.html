@@ -2,13 +2,15 @@
 
 
 {% block content %}
-
-    <form action="{% url 'home:login' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="d-grid gap-3">
-            <button type="submit" class="btn btn-success">Iniciar sesión</button>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <form action="{% url 'home:login' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-grid gap-3">
+                    <button type="submit" class="btn btn-success">Iniciar sesión</button>
+                </div>
+            </form>
         </div>
-    </form>
-
+    </div>
 {% endblock content %}
