@@ -7,9 +7,11 @@
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
                     <li class="nav-item"><a class="nav-link text-info" href="{% url 'catalogo:index' %}">Ingresar Datos</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:about' %}">Sobre Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:logout' %}">Logout</a></li>
                 {% else %}
-                    <li class="nav-item"><a class="nav-link {% if request.path == "/catalogo/list/" %} active  {% endif %}" href="{% url 'catalogo:catalogo_list' %}">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-info{% if request.path == "/catalogo/list/" %} active  {% endif %}" href="{% url 'catalogo:catalogo_list' %}">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:about' %}">Sobre Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:login' %}">Login</a></li>
                 {% endif %}
             </ul>

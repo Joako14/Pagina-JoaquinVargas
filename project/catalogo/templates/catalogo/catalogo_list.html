@@ -7,16 +7,16 @@
             <ul>
                 <li>{{ catalogo.marca }} {{ catalogo.modelo }} {{ catalogo.año }}</li>  
                 {% if user.is_authenticated %}
-                    <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a> 
-                    <a href="{% url 'catalogo:catalogo_update' catalogo.id %}">Modificar</a>
-                    <a href="{% url 'catalogo:catalogo_delete' catalogo.id %}">Eliminar</a>
+                    <a class="btn btn-info" href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a> 
+                    <a class="btn btn-info" href="{% url 'catalogo:catalogo_update' catalogo.id %}">Modificar</a>
+                    <a class="btn btn-info" href="{% url 'catalogo:catalogo_delete' catalogo.id %}">Eliminar</a>
                 {% else %}
-                    <a href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a>
+                    <a class="btn btn-info" href="{% url 'catalogo:catalogo_detail' catalogo.id %}">Ver detalle</a>
                 {% endif %}
             </ul>
         
         {% endfor %}
   
-            <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+            <p><a class="btn btn-dark" href="{% url 'home:index' %}">Ir al menu principal</a></p>
 
 {% endblock catalogo %}

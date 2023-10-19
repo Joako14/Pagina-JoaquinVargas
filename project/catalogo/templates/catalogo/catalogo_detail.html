@@ -14,7 +14,7 @@
                 <li><strong>Fecha de actualizacion:</strong> {{ object.fecha_actualizacion }} </li>
             </ul>
 
-            <p><a href="{% url 'catalogo:catalogo_list' %}">Ir atras</a></p>
-            <p><a href="{% url 'home:index' %}">Ir al menu principal</a></p>
+            <p><a class="btn btn-dark" href="{% url 'catalogo:catalogo_list' %}">Ir atras</a></p>
+            <p><a class="btn btn-dark" href="{% url 'home:index' %}">Ir al menu principal</a></p>
 
 {% endblock catalogo %}

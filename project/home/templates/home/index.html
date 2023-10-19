@@ -7,7 +7,7 @@
             {% block title %}
 
             {% endblock title %}
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/Bateria.jfif' %}" alt="..." /></div>
             <div class="col-lg-5">
                 <h1 class="font-weight-light">Catalogo</h1>
                 <p>Buscador de baterias Cyclon</p>
@@ -17,12 +17,10 @@
         
 
             {% if user.is_authenticated %}           
-                <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
-                <p><a href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
-                <p><a href="{% url 'catalogo:index' %}">Ingresar Datos</a></p>
+                <p><a class="btn btn-dark" href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
+                <p><a class="btn btn-dark" href="{% url 'catalogo:index' %}">Ingresar Datos</a></p>
             {% else %}
-                <p><a href="{% url 'catalogo:consulta_catalogo' %}">Buscar</a></p>
-                <p><a href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
+                <p><a class="btn btn-dark" href="{% url 'catalogo:catalogo_list' %}">Ver registros</a></p>
             {% endif %}
         </div>
     </div>

@@ -1,0 +1,24 @@
+{% extends "home/base.html" %}
+
+
+
+{% block content %}
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            {% block content_title %}
+                <h1>Acerca de Nosotros</h1>
+            {% endblock content_title %}
+                <h3>¡Bienvenidos a nuestro catálogo de baterías!</h3>
+                <p> Somos trabajadores de baterias Cyclon y estamos desarrollando esta web para ayudar a nuestros compañeros y a todos los visitantes a encontrar las baterías ideales para sus necesidades.</p>
+
+                <p> En nuestro sitio web, encontrarás una amplia selección de baterías de alta calidad para satisfacer tus necesidades. Nos enorgullece ofrecer productos confiables y un servicio excepcional.
+                    
+                    No dudes en contactarnos si ti</p>
+                <p>No dudes en contactarnos si tienes alguna pregunta o necesitas asistencia. Estamos aquí para ayudarte a encontrar la batería perfecta para tus necesidades.</p>
+        
+            <p><a class="btn btn-dark" href="{% url 'home:index' %}">Ir al menu principal</a></p>
+        </div>
+    </div>
+
+    
+{% endblock content %}
